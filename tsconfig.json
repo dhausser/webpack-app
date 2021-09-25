@@ -1,11 +1,10 @@
 {
   "include": ["src", "types"],
   "compilerOptions": {
-    "outDir": "./dist/",
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

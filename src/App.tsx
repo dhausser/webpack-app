@@ -1,13 +1,17 @@
-import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Layout from "./components/Layout";
+import "antd/dist/antd.css";
+import "./index.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<div>Home</div>} />
-        <Route path="users/*" element={<Users />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<div>Home</div>} />
+          <Route path="users/*" element={<Users />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }
