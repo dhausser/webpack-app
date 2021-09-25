@@ -36,7 +36,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       base: "/",
-      templateContent: `<div id="root"></div`,
+      templateContent: '<div id="root"></div',
     }),
     new ForkTsCheckerWebpackPlugin({
       eslint: {
