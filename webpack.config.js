@@ -1,6 +1,6 @@
-const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -38,10 +38,19 @@ module.exports = {
       base: "/",
       templateContent: `<div id="root"></div`,
     }),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        enabled: true,
+        files: "./src/**/*.{ts,tsx}",
+        memoryLimit: 4096,
+        options: {
+          formatter: "codeframe",
+        },
+      },
+    }),
     isDevelopment && new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
   devServer: {
-    // hot: true,
     historyApiFallback: true,
   },
 };

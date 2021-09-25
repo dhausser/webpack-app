@@ -3,20 +3,7 @@ import Layout from "./components/Layout";
 import "antd/dist/antd.css";
 import "./index.css";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<div>Home</div>} />
-          <Route path="users/*" element={<Users />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
-  );
-}
-
-function Users() {
+function Users(): JSX.Element {
   return (
     <div>
       <nav>
@@ -28,6 +15,19 @@ function Users() {
         <Route path="me" element={<div>Own Profile</div>} />
       </Routes>
     </div>
+  );
+}
+
+function App(): JSX.Element {
+  return (
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<div>Home</div>} />
+          <Route path="users/*" element={<Users />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

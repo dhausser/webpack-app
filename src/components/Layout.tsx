@@ -3,18 +3,21 @@ import { Link } from "react-router-dom";
 
 const { Header, Content, Footer } = Layout;
 
+const ARRAY_LENGTH = 15;
+const INCREMENT = 1;
+
 interface Props {
   children: React.ReactNode;
 }
 
-function AppLayout({ children }: Props) {
+function AppLayout({ children }: Readonly<Props>): JSX.Element {
   return (
     <Layout className="layout">
       <Header>
         <div className="logo" />
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
-          {new Array(15).fill(null).map((_, index) => {
-            const key = index + 1;
+          {new Array(ARRAY_LENGTH).fill(null).map((_, index) => {
+            const key = index + INCREMENT;
             return <Menu.Item key={key}>{`nav ${key}`}</Menu.Item>;
           })}
         </Menu>
