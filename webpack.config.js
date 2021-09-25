@@ -34,16 +34,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "index.html",
+      inject: true,
+      base: "/",
+      templateContent: `<div id="root"></div`,
     }),
     isDevelopment && new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
-  output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist"),
-  },
   devServer: {
-    hot: true,
+    // hot: true,
     historyApiFallback: true,
   },
 };
